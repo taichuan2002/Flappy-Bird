@@ -19,7 +19,7 @@ public class SpontColumn : MonoBehaviour
             float random = Random.Range(0.5f, 6);
             GameObject columns = Instantiate(column, new Vector3(transform.position.x,
                 transform.position.y + random,0), Quaternion.identity);
-            Destroy(columns, 10f);
+            Destroy(columns, 8f);
             time = 0;
         }
         time += Time.deltaTime;

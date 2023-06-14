@@ -19,4 +19,14 @@ public class Player : MonoBehaviour
             rb.AddForce(Vector2.up * speed);
         }
     }
+
+    private void gameOver()
+    {
+        Time.timeScale = 0;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        gameOver();
+    }
 }
