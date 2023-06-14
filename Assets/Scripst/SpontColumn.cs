@@ -14,11 +14,15 @@ public class SpontColumn : MonoBehaviour
     }
     void Update()
     {
-        if(time > maxTime)
+        spontColumn();
+    }
+    private void spontColumn()
+    {
+        if (time > maxTime)
         {
             float random = Random.Range(0.5f, 6);
             GameObject columns = Instantiate(column, new Vector3(transform.position.x,
-                transform.position.y + random,0), Quaternion.identity);
+                transform.position.y + random, 0), Quaternion.identity);
             Destroy(columns, 8f);
             time = 0;
         }
