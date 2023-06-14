@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Rigidbody2D rb;
+    public float speed;
+    private void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(Vector2.up * speed);
+        }
     }
 }
