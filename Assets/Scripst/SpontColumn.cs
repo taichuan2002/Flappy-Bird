@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class SpontColumn : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject column;
+    public float maxTime;
+    private float time;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        time = maxTime;
+    }
     void Update()
     {
-        
+        if(time > maxTime)
+        {
+            float random = Random.Range(0.5f, 6);
+            GameObject columns = Instantiate(column, new Vector3(transform.position.x,
+                transform.position.y + random,0), Quaternion.identity);
+            Destroy(columns, 10f);
+            time = 0;
+        }
+        time += Time.deltaTime;
     }
 }
